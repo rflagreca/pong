@@ -1,0 +1,5 @@
+#! /bin/ruby
+
+require_relative '../lib/pong'
+
+Game.run
