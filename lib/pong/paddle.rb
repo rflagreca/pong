@@ -2,7 +2,7 @@ class Paddle
   PADDLE_WIDTH = 10.0
   PADDLE_HEIGHT = 50.0
 
-  def self.spawn_paddle(side: 'left', window_width: 640.0, window_height: 480)
+  def self.spawn_paddle(side:, window_width:, window_height:)
     paddle = new
     if side == 'left'
       paddle.update_position(0.0, window_height * 0.5)
@@ -17,7 +17,6 @@ class Paddle
   def initialize
     @position_x, @position_y, @velocity_x, @velocity_y = 0.0
   end
-
 
   def update_position(position_x, position_y)
     @position_x = position_x

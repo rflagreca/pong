@@ -1,16 +1,19 @@
 class Window < Gosu::Window
+  WINDOW_WIDTH = 640
+  WINDOW_HEIGHT = 480
+
   def initialize
-    super 640, 480
+    super WINDOW_WIDTH, WINDOW_HEIGHT
     self.caption = 'Pong'
 
-    @ball = Ball.spawn_ball
-    @paddle_left = Paddle.spawn_paddle
-    @paddle_right = Paddle.spawn_paddle(side: 'right')
+    @ball = Ball.spawn_ball(window_width: WINDOW_WIDTH, window_height: WINDOW_HEIGHT)
+    @paddle_left = Paddle.spawn_paddle(side: 'left', window_width: WINDOW_WIDTH, window_height: WINDOW_HEIGHT)
+    @paddle_right = Paddle.spawn_paddle(side: 'right', window_width: WINDOW_WIDTH, window_height: WINDOW_HEIGHT)
   end
 
   def update
-    @ball.detect_paddle_collision([@paddle_left, @paddle_right])
-    @ball.detect_wall_collision(480.0)
+    @ball.detect_paddle_collision(paddles: [@paddle_left, @paddle_right])
+    @ball.detect_wall_collision(window_height: WINDOW_HEIGHT)
     @ball.move
   end
 
