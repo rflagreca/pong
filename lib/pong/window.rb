@@ -9,6 +9,8 @@ class Window < Gosu::Window
   end
 
   def update
+    @ball.detect_paddle_collision([@paddle_left, @paddle_right])
+    @ball.detect_wall_collision(480.0)
     @ball.move
   end
 

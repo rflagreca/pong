@@ -12,12 +12,12 @@ class Paddle
     paddle
   end
 
+  attr_reader :position_x, :position_y
+
   def initialize
-    @position_x = 0.0
-    @position_y = 0.0
-    @velocity_x = 0.0
-    @velocity_y = 0.0
+    @position_x, @position_y, @velocity_x, @velocity_y = 0.0
   end
+
 
   def update_position(position_x, position_y)
     @position_x = position_x
